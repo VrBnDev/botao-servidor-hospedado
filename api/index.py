@@ -8,13 +8,9 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 @app.route('/')
 def home():
-    return "render_template('index.html')"
+    return render_template('index.html')
 
 @app.route('/about')
 def about():
     return 'About'
 
-# Ponto de entrada principal da aplicação
-if __name__ == '__main__':
-    # Inicia o servidor Flask com suporte a WebSockets
-    socketio.run(app, host='0.0.0.0', port=5000)
