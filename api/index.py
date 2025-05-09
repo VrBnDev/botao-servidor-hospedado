@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 
 # Configura o SocketIO para permitir conexões de qualquer origem
 socketio = SocketIO(app, cors_allowed_origins="*")
