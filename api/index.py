@@ -1,10 +1,6 @@
 from flask import Flask, render_template
-from flask_socketio import SocketIO, emit
 
 app = Flask(__name__, template_folder="templates")
-
-# Configura o SocketIO para permitir conexões de qualquer origem
-socketio = SocketIO(app, cors_allowed_origins="*")
 
 @app.route('/')
 def home():
@@ -14,6 +10,4 @@ def home():
 def about():
     return 'About'
 
-# Ponto de entrada principal da aplicação
-if __name__ == '__main__':
-    app.run(debug=True)
+# Vercel vai usar a variável "app" como ponto de entrada
