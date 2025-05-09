@@ -13,8 +13,8 @@
 #include "example_http_client_util.h"
 
 // ======= CONFIGURAÇÕES ======= //
-#define HOST "192.168.210.70"  // Substitua pelo IP do servidor
-#define PORT 5000
+#define HOST "https://botao-servidor-hospedado.vercel.app/"  // Substitua pelo IP do servidor
+#define PORT 80
 #define INTERVALO_MS 50
 #define BUTTON_LEFT 5
 #define LED_BLUE 12
@@ -53,16 +53,9 @@ int main() {
         const char* path = NULL;
 
         if (gpio_get(BUTTON_LEFT) == 0) {
-            path = "/pressed";
-            gpio_put(LED_BLUE,1);
-            sleep_ms(100);
-            gpio_put(LED_BLUE,0);
+            path = "/api/botao?status=pressed";
         } else {
-            path = "/unpressed";
-            gpio_put(LED_RED,1);
-            sleep_ms(100);
-            gpio_put(LED_RED,0);
-
+            path = "/api/botao?status=unpressed";
         }
         if (path != NULL) {
             EXAMPLE_HTTP_REQUEST_T req = {0};
