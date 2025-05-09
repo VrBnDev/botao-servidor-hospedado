@@ -14,3 +14,6 @@ def home():
 def about():
     return 'About'
 
+# Ponto de entrada principal da aplicação
+if __name__ == '__main__':
+    app.run(debug=True)
