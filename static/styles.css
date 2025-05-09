@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f8;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    text-align: center;
+}
+
+#logo{
+    width: 100vw;
+    height: 30vh;
+    margin-bottom: 2rem;
+}
+
+.physical-button {
+    background: linear-gradient(-179.9998deg, #1b0ea4, #7b37d8);
+    color: white;
+    font-weight: 600;
+    padding: 20px 60px;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 25px rgba(123, 55, 216, 0.4);
+    transition: all 0.3s ease;
+    min-width: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.physical-button.pressed {
+    transform: scale(0.95);
+    box-shadow: 0 5px 15px rgba(123, 55, 216, 0.6);
+}
+
+.physical-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.physical-button.pressed::before {
+    left: 100%;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background-color: #22c55e;
+    transition: background-color 0.3s ease;
+}
+
+.status-indicator.offline {
+    background-color: #ef4444;
+}
+
+.status-text {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    color: #1e293b;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-align: center;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    width: 90%;
+    max-width: 500px;
+}
