@@ -4,7 +4,7 @@ app = Flask(__name__, template_folder="templates")
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html') 
 
 # Rota para comando "pressed"
 @app.route('/botao', methods=['GET', 'POST'])
