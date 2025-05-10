@@ -14,11 +14,13 @@
 
 // ======= CONFIGURAÇÕES ======= //
 #define HOST "https://botao-servidor-hospedado.vercel.app/"  // Substitua pelo IP do servidor
-#define PORT 80
+#define PORT 443
+#define USE_TLS true
 #define INTERVALO_MS 50
 #define BUTTON_LEFT 5
 #define LED_BLUE 12
 #define LED_RED 13
+
 // ============================= //
 
 int main() {
@@ -64,7 +66,7 @@ int main() {
             req.port = PORT;
             req.headers_fn = http_client_header_print_fn;
             req.recv_fn = http_client_receive_print_fn;
-
+            req.tls_config = altcp_tls_create_config_client(NULL, 0);
 
             printf("Enviando comando: %s\n", path);
             int result = http_client_request_sync(cyw43_arch_async_context(), &req);
