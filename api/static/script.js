@@ -5,7 +5,11 @@ function atualizarStatus(texto) {
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft') atualizarStatus("Pressionado");
+  if (e.key === 'ArrowLeft') {
+    atualizarStatus("Pressionado");
+  } else {
+    atualizarStatus("Solto");
+  }
 });
 
 setInterval(() => {
@@ -16,4 +20,4 @@ setInterval(() => {
       else atualizarStatus('Solto');
     })
     .catch(err => console.error('Erro na conexão:', err));
-}, 1000); // a cada 1 segundo
+}, 3000); // a cada 1 segundo
