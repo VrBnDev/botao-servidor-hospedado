@@ -13,7 +13,7 @@
 #include "example_http_client_util.h"
 
 // ======= CONFIGURAÇÕES ======= //
-#define HOST "https://botao-servidor-hospedado.vercel.app/"  // Substitua pelo IP do servidor
+#define HOST "botao-servidor-hospedado.vercel.app/"  // Substitua pelo IP do servidor
 #define PORT 443
 #define USE_TLS true
 #define INTERVALO_MS 50

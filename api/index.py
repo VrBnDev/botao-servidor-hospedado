@@ -1,12 +1,24 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, jsonify, request, render_template
 
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__)
+estado_botao = "unpressed"
 
 @app.route('/')
-def home():
-    return render_template('index.html') 
+def index():
+    return render_template('index.html')
 
-# Rota para comando "pressed"
-@app.route('/status', methods=['GET', 'POST'])
-def botao():
-    return jsonify({"action":"pressed"})
+@app.route('/pressed')
+def pressed():
+    global estado_botao
+    estado_botao = "pressed"
+    return jsonify({"message": "Estado atualizado para pressionado"})
+
+@app.route('/unpressed')
+def unpressed():
+    global estado_botao
+    estado_botao = "unpressed"
+    return jsonify({"message": "Estado atualizado para solto"})
+
+@app.route('/status')
+def status():
+    return jsonify({"action": estado_botao})

@@ -5,7 +5,7 @@ function atualizarStatus(texto) {
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft') atualizarStatus();
+  if (e.key === 'ArrowLeft') atualizarStatus("Pressionado");
 });
 
 setInterval(() => {
