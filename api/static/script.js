@@ -17,7 +17,6 @@ setInterval(() => {
     .then(res => res.json())
     .then(data => {
       if (data.action === 'pressed') atualizarStatus('Pressionado');
-      else atualizarStatus('Solto');
     })
     .catch(err => console.error('Erro na conexão:', err));
 }, 2000); // a cada 1 segundo
