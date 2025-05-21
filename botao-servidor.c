@@ -13,8 +13,8 @@
 #include "example_http_client_util.h"
 
 // ======= CONFIGURAÇÕES ======= //
-#define HOST "botao-servidor-hospedado.vercel.app/"  // Substitua pelo IP do servidor
-#define PORT 443
+#define HOST "botao-servidor-hospedado.vercel.app"  // Substitua pelo IP do servidor
+#define PORT 80
 #define USE_TLS true
 #define INTERVALO_MS 50
 #define BUTTON_LEFT 5
@@ -55,9 +55,9 @@ int main() {
         const char* path = NULL;
 
         if (gpio_get(BUTTON_LEFT) == 0) {
-            path = "/api/botao?status=pressed";
+            path = "/pressed";
         } else {
-            path = "/api/botao?status=unpressed";
+            path = "/unpressed";
         }
         if (path != NULL) {
             EXAMPLE_HTTP_REQUEST_T req = {0};

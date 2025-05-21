@@ -1,4 +1,5 @@
 const physicalButton = document.getElementById('physicalButton');
+const ws = new WebSocket('');
 
 function atualizarStatus(texto) {
   physicalButton.textContent = texto;
@@ -20,4 +21,4 @@ setInterval(() => {
       else atualizarStatus('Solto');
     })
     .catch(err => console.error('Erro na conexão:', err));
-}, 3000); // a cada 1 segundo
+}, 1000); // a cada 1 segundo

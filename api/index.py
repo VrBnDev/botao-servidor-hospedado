@@ -11,13 +11,13 @@ def index():
 def pressed():
     global estado_botao
     estado_botao = "pressed"
-    return jsonify({"message": "Estado atualizado para pressionado"})
+    return jsonify({"action": estado_botao, "message": "Estado atualizado para pressionado"})
 
 @app.route('/unpressed')
 def unpressed():
     global estado_botao
     estado_botao = "unpressed"
-    return jsonify({"message": "Estado atualizado para solto"})
+    return jsonify({"action": estado_botao, "message": "Estado atualizado para solto"})
 
 @app.route('/status')
 def status():
