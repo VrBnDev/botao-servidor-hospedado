@@ -56,9 +56,9 @@ int main() {
 
         if (gpio_get(BUTTON_LEFT) == 0) {
             path = "/pressed";
-        } else {
+        } /*else {
             path = "/unpressed";
-        }
+        }*/
         if (path != NULL) {
             EXAMPLE_HTTP_REQUEST_T req = {0};
             req.hostname = HOST;
