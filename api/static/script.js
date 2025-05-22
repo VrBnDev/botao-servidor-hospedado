@@ -1,14 +1,29 @@
 const physicalButton = document.getElementById('physicalButton');
+let ultimoStatus = ''; // Armazena o último estado exibido
 
-function atualizarStatus(texto) {
-  physicalButton.textContent = texto;
+function atualizarStatus(novoStatus) {
+  if (novoStatus !== ultimoStatus) {
+    physicalButton.textContent = novoStatus === 'pressed' ? 'Pressionado' : 'Solto';
+    ultimoStatus = novoStatus;
+  }
 }
 
-setInterval(() => {
+function buscarStatus() {
   fetch('/status')
-    .then(res => res.json())
-    .then(data => {
-      if (data.action === 'pressed') atualizarStatus('Pressionado');
+    .then(res => {
+      if (!res.ok) throw new Error('Falha na resposta do servidor');
+      return res.json();
     })
-    .catch(err => console.error('Erro na conexão:', err));
-}, 2000); // a cada 1 segundo
+    .then(data => {
+      if (data.action === 'pressed' || data.action === 'unpressed') {
+        atualizarStatus(data.action);
+      } else {
+        console.warn('Resposta inesperada:', data);
+      }
+    })
+    .catch(err => {
+      console.error('Erro na conexão:', err.message);
+    });
+}
+
+setInterval(buscarStatus, 2000); // Executa a cada 2 segundos
