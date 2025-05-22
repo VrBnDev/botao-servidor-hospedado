@@ -11,7 +11,7 @@ function atualizarStatus(novoStatus) {
 function buscarStatus() {
   fetch('/status')
     .then(res => {
-      if (!res.ok) throw new Error('Falha na resposta do servidor');
+      if (!res.ok) throw new Error('Placa não conectada!');
       return res.json();
     })
     .then(data => {

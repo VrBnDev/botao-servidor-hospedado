@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
+estado_botao = "global"
 
 @app.route('/')
 def index():
@@ -20,4 +21,4 @@ def unpressed():
 
 @app.route('/status')
 def status():
-    return jsonify({"action": estado_botao, "message": "Vinda do status"})
+    return jsonify({"action": estado_botao})
