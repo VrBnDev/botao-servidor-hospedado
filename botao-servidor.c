@@ -16,7 +16,7 @@
 #define HOST "botao-servidor-hospedado.vercel.app"  // Substitua pelo IP do servidor
 #define PORT 80
 #define USE_TLS true
-#define INTERVALO_MS 50
+#define INTERVALO_MS 500
 #define BUTTON_LEFT 5
 #define LED_BLUE 12
 #define LED_RED 13
