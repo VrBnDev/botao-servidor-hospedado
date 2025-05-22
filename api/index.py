@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
-estado_botao = "unpressed"
+estado_botao = " "
 
 @app.route('/')
 def index():
