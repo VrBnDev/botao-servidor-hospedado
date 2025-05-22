@@ -4,14 +4,6 @@ function atualizarStatus(texto) {
   physicalButton.textContent = texto;
 }
 
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft') {
-    atualizarStatus("Pressionado");
-  } else {
-    atualizarStatus("Solto");
-  }
-});
-
 setInterval(() => {
   fetch('/status')
     .then(res => res.json())
