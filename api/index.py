@@ -21,4 +21,4 @@ def unpressed():
 
 @app.route('/status')
 def status():
-    return jsonify({"action": estado_botao})
+    return jsonify({"action": estado_botao, "message": "Vinda do status"})
